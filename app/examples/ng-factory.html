@@ -1,0 +1,76 @@
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script>
+  var app = angular.module('exmpApp', ['ngRoute']);
+
+  app.config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        template: '<ul> <li ng-repeat="user in users"><a href="#/users/{{user.name}}">{{user.name}}</a> - age {{user.age}}</li> </ul>',
+        controller: 'UsersCtrl'
+      })
+      .when('/users/:name', {
+        template: '<img ng-src="{{user.picture_url}}"><br><h1>{{user.firstName}} {{user.lastName}}</h1><br>Age: {{user.age}}<br>Bio: {{user.bio}}<span ng-if="!user.bio">No Bio</span>',
+        controller: 'UserShowCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+  })
+
+  app.factory('users', function ($http) {
+    return {
+      list: function (callback) {
+        $http.get('data/users.json').success(callback);
+      }
+    };
+  })
+
+  app.controller('UsersCtrl', function ($scope, users) {
+    $scope.users = [];
+
+    users.list(function (users) {
+      $scope.users = users;
+    });
+  })
+
+  app.controller('UserShowCtrl', function ($scope, $routeParams, $http) {
+    $scope.user = {};
+
+    $http.get('data/users/' + $routeParams.name + '.json')
+      .then(function (res) {
+        $scope.user = res.data;
+      });
+  })
+</script>
+
+<body ng-app="exmpApp">
+  <div class="container">
+    <div ng-view></div>
+  </div>
+</body>
+<!--
+[
+  {
+    "name": "Samer",
+    "age": 24
+  },
+  {
+    "name": "Ahmed",
+    "age": 30
+  },
+  {
+    "name": "Rami",
+    "age": 19
+  },
+  {
+    "name": "Toto",
+    "age": 33
+  },
+  {
+    "name": "Hamied",
+    "age": 41
+  }
+  ...
+]
+-->

@@ -1,0 +1,16 @@
+<script src="/bower_components/angular/angular.js"></script>
+<script>
+  var app = angular.module('exmpApp', []);
+
+  app.controller('UserCtrl', function ($scope) {
+    $scope.numbers = ["one", "two", "three"];
+  })
+</script>
+
+<body ng-app="exmpApp">
+  <div class="container" ng-controller="UserCtrl">
+    <ul>
+      <li ng-repeat="number in numbers">{{number}}</li>
+    </ul>
+  </div>
+</body>

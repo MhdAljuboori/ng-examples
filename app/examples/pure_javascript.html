@@ -1,0 +1,11 @@
+Name <input type="text" id="nameInput">
+Hello, <span id="nameSpan"></span>
+
+<script>
+    var nameInput = document.getElementById("nameInput"),
+        nameSpan  = document.getElementById("nameSpan");
+    nameInput.addEventListener("keyup", function () {
+        var newName = nameInput.value;
+        nameSpan.innerHTML = newName;
+    });
+</script>

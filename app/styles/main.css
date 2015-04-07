@@ -1,0 +1,180 @@
+
+
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+
+body
+{
+    padding-top: 50px;
+}
+
+
+.navbar-red .nav.navbar-nav a {
+    color: whitesmoke;
+}
+
+.navbar-red .nav.navbar-nav a:hover {
+    color: white;
+    background-color: #9E232C;
+}
+
+/*
+ * Global add-ons
+ */
+
+.sub-header
+{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+
+.sidebar
+{
+    display: none;
+}
+
+@media (min-width: 768px)
+{
+    .sidebar
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        display: block;
+        padding: 70px 20px 20px;
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+        overflow-y: auto;
+    }
+}
+
+/* Sidebar navigation */
+
+.nav-sidebar
+{
+    margin-left: -20px;
+    margin-right: -21px;
+    margin-bottom: 20px;
+}
+
+.nav-sidebar > li > a
+{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.nav-sidebar > .active > a
+{
+    color: #fff;
+    background-color: #d92f3b;
+}
+
+/*
+ * Main content
+ */
+
+.main
+{
+    padding: 20px;
+}
+
+@media (min-width: 768px)
+{
+    .main
+    {
+        padding-left: 40px;
+        pading-right: 40px;
+    }
+}
+
+.main .page-header
+{
+    margin-top: 0;
+}
+
+.main-content {
+    padding-bottom: 40px;
+}
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders
+{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.placeholders h4
+{
+    margin-bottom: 0;
+}
+
+.placeholder
+{
+    margin-bottom: 20px;
+}
+
+.placeholder img
+{
+    border-radius: 50%;
+}
+
+.navbar-red
+{
+    background-color: #B92933;
+}
+
+.navbar-red .navbar-brand
+{
+    color: white;
+}
+
+.nav-sidebar>.active > a:hover
+{
+    background-color: #f13340;
+}
+
+footer
+{
+    position: fixed;
+    width: 100%;
+    height: navbar;
+    bottom: 0;
+    z-index: 1000;
+    background-color: #5A5A5A;
+    padding-top: 10px;
+}
+
+footer a
+{
+    color: lightgray;
+}
+
+footer a:hover
+{
+    color: white;
+}
+
+.ace_editor {
+    height: 300px;
+    font-size: 20px !important;
+}
+
+iframe {
+    width: 100%;
+    min-height: 200px;
+    border: 2px solid lightgray;
+}

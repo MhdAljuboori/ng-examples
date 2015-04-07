@@ -1,0 +1,28 @@
+<h2 class="sub-header">
+  <a href="{{selectedExample.file_url}}" target="_blank">{{selectedExample.title}}</a>
+</h2>
+<div class="">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="result-container">
+        <iframe src="{{selectedExample.file_url}}" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+<div class="">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="code-contaienr">
+        <div ui-ace="{
+              useWrapMode : true,
+              theme: 'vibrant_ink',
+              mode: '{{ codeType }}',
+              onLoad: aceLoaded,
+              fontSize: '20px'
+            }" ng-model="code"></div>
+      </div>
+    </div>
+  </div>
+</div>

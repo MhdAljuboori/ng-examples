@@ -1,0 +1,14 @@
+<div class="container-fluid main-content">
+  <div class="row">
+    <div class="col-sm-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li ng-repeat="example in examples" ng-class="{'active': selectedExample == example}">
+          <a href="#/examples/{{example.slug}}" ng-click="selectExample(example)">{{ example.title }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 main">
+      <div ui-view></div>
+    </div>
+  </div>
+</div>

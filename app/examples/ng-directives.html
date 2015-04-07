@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script>
+  var app = angular.module('exmpApp', []);
+
+  app.directive('navbar', function(){
+    return {
+      restrict: 'E',
+      // E: Element
+      // A: Attribute
+      // C: Class
+      // M: Comment
+      templateUrl: 'navbar.html',
+      controller: 'NavigationCtrl',
+    };
+  });
+
+  app.controller('NavigationCtrl', function ($scope) {
+    $scope.title = "Navbar";
+  })
+</script>
+
+<body ng-app="exmpApp">
+  <navbar></navbar>
+
+  <script type="text/ng-template" id="navbar.html">
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#/">{{title}}</a>
+        </div>
+      </div>
+    </div>
+  </script>
+</body>
+<!--
+[
+  {
+    "name": "Samer",
+    "age": 24
+  },
+  {
+    "name": "Ahmed",
+    "age": 30
+  },
+  {
+    "name": "Rami",
+    "age": 19
+  },
+  {
+    "name": "Toto",
+    "age": 33
+  },
+  {
+    "name": "Hamied",
+    "age": 41
+  }
+  ...
+]
+-->

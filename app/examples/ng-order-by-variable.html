@@ -1,0 +1,69 @@
+<script src="/bower_components/angular/angular.js"></script>
+<script>
+  var app = angular.module('exmpApp', []);
+
+  app.controller('UserCtrl', function ($scope, $http) {
+    $scope.sortBy = 'name';
+    $scope.user = {};
+    $scope.users = [];
+
+    $http.get('data/users.json')
+      .then(function (res) {
+        $scope.users = res.data;
+      });
+
+    $scope.addUser = function addUser () {
+      $scope.users.push($scope.user);
+      $scope.user = {};
+    }
+
+    $scope.removeUser = function (user) {
+      var i = $scope.users.indexOf(user);
+      $scope.users.splice(i, 1);
+    }
+  })
+</script>
+
+<body ng-app="exmpApp">
+  <div class="container" ng-controller="UserCtrl">
+    Search <input type="text" ng-model="nameQuery"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="" ng-click="sortBy = 'name'">Name</a>&nbsp;&nbsp;&nbsp;
+    <a href="" ng-click="sortBy = 'age'">Age</a>
+    <ul>
+      <li ng-repeat="user in users | filter:nameQuery | orderBy:sortBy">
+        {{user.name}} - age {{user.age}}
+        <a href="" ng-click="removeUser(user)">remove</a>
+      </li>
+    </ul>
+    <form ng-submit="addUser()">
+      Name <input type="text" ng-model="user.name"><br><br>
+      Age <input type="number" ng-model="user.age"><br><br>
+      <input type="submit" value="Add">
+    </form>
+  </div>
+</body>
+<!--
+[
+  {
+    "name": "Samer",
+    "age": 24
+  },
+  {
+    "name": "Ahmed",
+    "age": 30
+  },
+  {
+    "name": "Rami",
+    "age": 19
+  },
+  {
+    "name": "Toto",
+    "age": 33
+  },
+  {
+    "name": "Hamied",
+    "age": 41
+  }
+  ...
+]
+-->

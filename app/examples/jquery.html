@@ -1,0 +1,12 @@
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+
+Name <input type="text" id="nameInput">
+Hello, <span id="nameSpan"></span>
+
+<script>
+  $(document).ready(function () {
+    $('#nameInput').on('keyup', function () {
+      $('#nameSpan').html($(this).val());
+    })
+  });
+</script>

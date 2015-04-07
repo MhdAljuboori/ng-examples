@@ -1,0 +1,25 @@
+<script src="/bower_components/angular/angular.js"></script>
+<script>
+  var app = angular.module('exmpApp', []);
+
+  app.controller('UserCtrl', function ($scope) {
+    $scope.users = [{
+      "name": "Samer",
+      "age": 24
+    }, {
+      "name": "Ahmed",
+      "age": 30
+    }, {
+      "name": "Rami",
+      "age": 19
+    }];
+  })
+</script>
+
+<body ng-app="exmpApp">
+  <div class="container" ng-controller="UserCtrl">
+    <ul>
+      <li ng-repeat="user in users">{{user.name}} - age {{user.age}}</li>
+    </ul>
+  </div>
+</body>
